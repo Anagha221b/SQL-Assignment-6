@@ -1,0 +1,33 @@
+TASK#6
+
+
+--1.1--Performing inner join
+
+select p.Fname,p.Lname,p.Population,p.Rating,p.Country_Id,p.Country_name,c.Area from Persons p
+inner join Country c on c.Id=p.Country_Id;
+
+--1.2--Performing left join
+
+select p.Fname,p.Lname,p.Population,p.Rating,p.Country_Id,p.Country_name,c.Area from Persons p
+left join Country c on c.Id=p.Country_Id;
+
+--1.3--Performing right join
+
+select p.Fname,p.Lname,p.Population,p.Rating,p.Country_Id,p.Country_name,c.Area from Persons p
+right join Country c on c.Id=p.Country_Id;
+
+--2--Listing distinct country names from both the tables
+
+select distinct Country_name from Country
+UNION
+select Distinct Country_name from Persons;
+
+--3--Listing all country names from both the Country and Persons tables, including duplicates.
+
+select Country_name from Country
+UNION all
+select Country_name from Persons;
+
+--4--Rounding off the ratings of all persons to the nearest integer in the Persons table.
+
+select Fname,Lname,Country_name,ROUND(Rating,0) AS RoundedRating from Persons;
